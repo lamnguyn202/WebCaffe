@@ -1,0 +1,107 @@
+﻿@using Kendo.Mvc.UI
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_FormList.cshtml";
+}
+
+@model WebCaffe.Models.PosCategoryModel
+@{ Layout = "~/Views/Shared/_FormList.cshtml"; }
+
+@Html.Action("AToolbarItem", "Nav")
+<div class="k-edit-form-container" style="overflow-x: hidden; ">
+    <form method="post" id="frmEdit" class="form-horizontal" role="form">
+        <div id="Tabs">
+            <ul>
+                <li class="k-state-active">@Html.Label("Cơ bản")</li>
+            </ul>
+            @*Cơ bản*@
+            <div>
+                <div style="height: 0; overflow: hidden">
+                    @Html.HiddenFor(model => model.Guid)
+                    @Html.HiddenFor(model => model.IsUpdate)
+                    <input type="hidden" id="hfLuuvathem" value="0" /><input type="hidden" id="hfExpand" value="0" />
+                    <button type="submit" id="btnLuu" style="visibility: hidden"></button>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-2 col-md-2">
+                        @Html.LabelFor(m => m.Name)
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        @Html.TextBoxFor(model => model.Name, new { @class = "k-textbox", @onchange = "Friendly_urlChange();" })
+                        <div>@Html.ValidationMessageFor(model => model.Name)</div>
+                    </div>
+
+                    <div class="col-sm-2 col-md-2">
+                        @Html.LabelFor(m => m.Active)
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        @Html.CheckBoxFor(model => model.Active)
+                        <div>@Html.ValidationMessageFor(model => model.Active)</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+<script>
+    //Form submit
+    var validator = $("#frmEdit").kendoValidator().data("kendoValidator");
+    $("form").submit(function (event) {
+        if (validator.validate() == true) {
+            kendo.ui.progress(parent.$("#WidgetConfigWindow"), true);
+            var frm = $('#frmEdit');
+            var httpPost = $.post('@Url.Action("Update", "PosCategory")', frm.serialize(), function (dataResponse) {
+                kendo.ui.progress(parent.$("#WidgetConfigWindow"), false);
+                if (dataResponse.StatusCode == 200) {
+                    parent.voidRefresh();
+                    parent.ActiveRow(dataResponse.ActiveCode);
+                    if (parseInt($("#hfLuuvathem").val()) == 0) {
+                        closeWindowEdit();
+                    } else {
+                        parent.Create('0');
+                    }
+                } else {
+                    Notification("Không thành công !", dataResponse.StatusCode, dataResponse.MessagError, "error", true);
+                }
+            }).fail(function (xhr, status, error) {
+                kendo.ui.progress(parent.$("#WidgetConfigWindow"), false);
+                Notification("Không thành công !", "404", error, "error", true);
+            });
+        }
+        event.preventDefault();
+    });
+
+
+    function closeWindowEdit() {
+        var window = parent.$("#WidgetConfigWindow").data("kendoWindow");
+        window.close();
+    }
+
+    function voidDeleteItem() {
+        parent.Delete();
+        closeWindowEdit();
+    }
+
+    function voidRefreshItem() {
+        if (parseInt($("#IsUpdate").val()) == 0) {
+            parent.Create('0');
+        } else if (parseInt($("#IsUpdate").val()) == 1) {
+            parent.Edit('1');
+        }
+    }
+
+    function Friendly_urlChange() {
+        $("#SeoFriendUrl").val(RemoveUnicode($("#Name").val()));
+    }
+
+    ToolbarItem_Click();
+    //Enter text box
+    PreventEventTextSubmit();
+    //Phím tắt
+    KeyboardNavigationEdit();
+    KendoTabStrip();
+</script>

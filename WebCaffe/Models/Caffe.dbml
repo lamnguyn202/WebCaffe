@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CaPhe" Class="CaffeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.ChiTietDonHang" Member="ChiTietDonHangs">
+    <Type Name="ChiTietDonHang">
+      <Column Name="madon" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="masp" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="soluong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gia" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trangthai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DonHang_ChiTietDonHang" Member="DonHang" ThisKey="madon" OtherKey="madon" Type="DonHang" IsForeignKey="true" />
+      <Association Name="SanPham_ChiTietDonHang" Member="SanPham" ThisKey="masp" OtherKey="masp" Type="SanPham" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UNews" Member="UNews">
+    <Type Name="UNew">
+      <Column Name="Guid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="TypeNews" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="ContentNews" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CountView" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GuidImage" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="SeoTitle" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoImage" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SeoFriendUrl" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GuidGroup" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UpdatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DonHang" Member="DonHangs">
+    <Type Name="DonHang">
+      <Column Name="madon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="thanhtoan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="giaohang" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ngaydat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ngaygiao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="makh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mapt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="dienthoai" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="DonHang_ChiTietDonHang" Member="ChiTietDonHangs" ThisKey="madon" OtherKey="madon" Type="ChiTietDonHang" />
+      <Association Name="KhachHang_DonHang" Member="KhachHang" ThisKey="makh" OtherKey="makh" Type="KhachHang" IsForeignKey="true" />
+      <Association Name="PhuongThucThanhToan_DonHang" Member="PhuongThucThanhToan" ThisKey="mapt" OtherKey="mapt" Type="PhuongThucThanhToan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FControlMenu" Member="FControlMenus">
+    <Type Name="FControlMenu">
+      <Column Name="Guid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="GuidControl" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="GuidMenu" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FProduceGallery" Member="FProduceGalleries">
+    <Type Name="FProduceGallery">
+      <Column Name="Guid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GuidProduce" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GuidGallery" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FRoleControlMenu" Member="FRoleControlMenus">
+    <Type Name="FRoleControlMenu">
+      <Column Name="Guid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GuidRole" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="GuidControl" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="GuidMenu" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HinhDang" Member="HinhDangs">
+    <Type Name="HinhDang">
+      <Column Name="mahd" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tenhd" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="HinhDang_SanPham" Member="SanPhams" ThisKey="mahd" OtherKey="mahd" Type="SanPham" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="makh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="marole" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tendangnhap" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="matkhau" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="dienthoai" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="avartar" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="KhachHang_DonHang" Member="DonHangs" ThisKey="makh" OtherKey="makh" Type="DonHang" />
+      <Association Name="Role_KhachHang" Member="Role" ThisKey="marole" OtherKey="marole" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Loai" Member="Loais">
+    <Type Name="Loai">
+      <Column Name="maloai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tenloai" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="Loai_SanPham" Member="SanPhams" ThisKey="maloai" OtherKey="maloai" Type="SanPham" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhuongThucThanhToan" Member="PhuongThucThanhToans">
+    <Type Name="PhuongThucThanhToan">
+      <Column Name="mapt" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tenpt" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="PhuongThucThanhToan_DonHang" Member="DonHangs" ThisKey="mapt" OtherKey="mapt" Type="DonHang" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="marole" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tenrole" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Role_KhachHang" Member="KhachHangs" ThisKey="marole" OtherKey="marole" Type="KhachHang" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SanPham" Member="SanPhams">
+    <Type Name="SanPham">
+      <Column Name="masp" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="maloai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mahd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tensp" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="hinh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="giaban" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ngaycapnhat" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="soluongton" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mieuta" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="mota" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ApprovedStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApprovedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ApprovedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Legit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LegitCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SanPham_ChiTietDonHang" Member="ChiTietDonHangs" ThisKey="masp" OtherKey="masp" Type="ChiTietDonHang" />
+      <Association Name="HinhDang_SanPham" Member="HinhDang" ThisKey="mahd" OtherKey="mahd" Type="HinhDang" IsForeignKey="true" />
+      <Association Name="Loai_SanPham" Member="Loai" ThisKey="maloai" OtherKey="maloai" Type="Loai" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SControl" Member="SControls">
+    <Type Name="SControl">
+      <Column Name="Guid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedBy" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="SpriteCssClass" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="EventClick" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Orderby" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SMenu" Member="SMenus">
+    <Type Name="SMenu">
+      <Column Name="Guid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedBy" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="GuidLanguage" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="OrderMenu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Icon" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="GuidParent" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LinkUrl" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="FriendUrl" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="RouterUrl" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UGallery" Member="UGalleries">
+    <Type Name="UGallery">
+      <Column Name="Guid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="UpdatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UpdatedBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="GuidGroup" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

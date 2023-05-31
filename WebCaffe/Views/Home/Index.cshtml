@@ -1,0 +1,141 @@
+﻿@model WebCaffe.Models.HomeModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!--Trang chủ-->
+<!-- Hero Section Begin -->
+<section class="hero set-bg" data-setbg="/assets/theme/img/hero/c121fda571b924-coffeebanner.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Danh mục</span>
+                    </div>
+                    <ul style="padding-left: 0px; background: wheat; display:none;">
+                        @if (Model.ListPosCategory != null && Model.ListPosCategory.Any())
+                        {
+                            foreach (var item in Model.ListPosCategory)
+                            {
+                                <li style="border-bottom: 1px solid #ebebeb; padding-left: 40px;"><a href="/danh-muc/@item.SeoFriendUrl">@item.Name</a></li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="javascript:loadSearchData();" style=" background: #ffffff;">
+                            <input type="text" id="keyWord" placeholder="Tìm kiếm ...">
+                            <button type="button" class="site-btn" onclick="loadSearchData();"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5 style="color: #ffffff;">0373170564</h5>
+                            <span style="color: #ffffff;">Hỗ trợ 24/7</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__item set-bg">
+
+                    <div class="hero__text">
+                        <span></span>
+                        <h2> <br /></h2>
+                        <p></p>
+                        @*<a href="/" class="primary-btn">MUA NGAY</a>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!--Sản Phẩm Mới Nhất, kế thừa từ HomeCommon-->
+
+@Html.Action("PartialLatestProduct", "HomeCommon")
+ <!--Kế thừa từ file "PartialLatestProduct" trong "HomeCommon" -->
+<!-- Banner Begin, hai bức ảnh bên dưới -->
+<div class="banner">
+    <div class="container" style=" margin-top: 30px; background: #810400; padding: 40px 20px; border-radius: 30px;">
+        <section class="section" id="section_1009231616">
+            <div class="bg section-bg fill bg-fill bg-loaded">
+
+            </div>
+
+            <div class="section-content relative">
+
+                <div class="row align-middle" id="row-567464650">
+
+                    <div id="col-1747528536" class="col-lg-6">
+                        <div class="col-inner">
+
+                            <h2 style="font-size: 35px; color: white;">
+                                <span id="Chuyen_gia_SO_1_ve_ca_phe_nguyen_chat_-_ca_phe_sach">Chuyên gia SỐ 1 về cà phê nguyên chất – cà phê sạch</span>
+                            </h2>
+                            <div id="text-3364978862" class="text">
+
+                                <p style="text-align: justify;"><strong>Chuyên gia cafe sạch – Thương hiệu nổi tiếng uy tín SỐ 1 Nguyen Chat Coffee &amp; Tea tự hào là nhà sản xuất Cà Phê Nguyên Chất ngon, sạch 100%, tốt cho sức khỏe với nhiều ưu đãi khủng và giá rẻ nhất !</strong></p>
+                                <p style="text-align: justify;"><strong>–&gt;&gt; ĐÃ HƠN 10.000 QUÁN TIN DÙNG TRÊN CẢ NƯỚC NƠI HỘI TỤ HÀNG TRIỆU TÍN ĐỒ YÊU CÀ PHÊ SẠCH, TẠI SAO?</strong></p>
+                                <p style="text-align: justify;"><strong>Chúng tôi mang đến QUYỀN ĐƯỢC AN TÂM về SỨC KHỎE khi thưởng thức &amp; Cam kết CHẤT LƯỢNG VÔ ĐỐI chỉ có tại Nguyen Chat Coffee &amp; Tea</strong></p>
+
+                                <style>
+                                    #text-3364978862 {
+                                        color: rgb(255,255,255);
+                                    }
+
+                                        #text-3364978862 > * {
+                                            color: rgb(255,255,255);
+                                        }
+                                </style>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div id="col-1366782865" class="col-lg-6">
+                        <div class="col-inner">
+
+
+                            <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_89958303">
+                                <div class="img-inner dark">
+                                    <img style="border-radius: 15px; max-width: 100%; height: auto; display: inline-block; vertical-align: middle; " width="1020" height="924" src="https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-1280x1160.jpg" class="attachment-large size-large lazyloaded" alt="" sizes="(max-width: 1020px) 100vw, 1020px" srcset="https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-1280x1160.jpg 1280w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-640x580.jpg 640w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-1024x928.jpg 1024w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-1536x1392.jpg 1536w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-2048x1856.jpg 2048w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-510x462.jpg 510w" data-ll-status="loaded"><noscript><img width="1020" height="924" src="https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-1280x1160.jpg" class="attachment-large size-large" alt="" srcset="https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-1280x1160.jpg 1280w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-640x580.jpg 640w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-1024x928.jpg 1024w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-1536x1392.jpg 1536w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-2048x1856.jpg 2048w, https://caphenguyenchat.vn/wp-content/uploads/2021/09/Hinh-cafe-anh-dung-510x462.jpg 510w" sizes="(max-width: 1020px) 100vw, 1020px"></noscript>
+                                </div>
+
+                                <style>
+                                    #image_89958303 {
+                                        width: 100%;
+                                    }
+                                </style>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <style>
+                #section_1009231616 {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    background-color: rgb(129, 4, 0);
+                }
+            </style>
+        </section>
+    </div>
+</div>
+<!-- Banner End -->
+
+@Html.Action("PartialFeaturedProduct", "HomeCommon")

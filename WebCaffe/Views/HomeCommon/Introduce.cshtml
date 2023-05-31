@@ -1,0 +1,131 @@
+﻿@model WebCaffe.Models.ContactUsModel
+@{
+    ViewBag.Title = "Introduce";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <style>
+        ol {
+            padding-left: 16px;
+        }
+    </style>
+}
+@if (Model != null)
+{
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>Danh mục</span>
+                        </div>
+                        <ul>
+                            @if (Model.ListPosCategory != null && Model.ListPosCategory.Any())
+                            {
+                                foreach (var item in Model.ListPosCategory)
+                                {
+                                    <li><a href="/danh-muc/@item.SeoFriendUrl">@item.Name</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="javascript:loadSearchData();" style="background:#ffffff;">
+                                <input type="text" id="keyWord" placeholder="Tìm kiếm ...">
+                                <button type="button" class="site-btn" onclick="loadSearchData();"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>0373170564</h5>
+                                <span>Hỗ trợ 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="/assets/theme/img/background_title2.jpg">
+        <div class="container" style="background: #ffffff; padding: 40px 20px; border-radius: 30px;">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2 style="color:black;">GIỚI THIỆU</h2>
+                        <div class="breadcrumb__option">
+                            <a style="color:black;" href="/">Trang chủ</a>
+                            <span style="color:black;"> Giới thiệu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container" style="background: #ffffff; padding: 40px 20px; border-radius: 30px;">
+            <div class="row">
+                <div id="content" class="content-area page-wrapper" role="main" style="padding: 0 20px;">
+                    <div class="row row-main">
+                        <div class="large-12 col">
+                            <div class="col-inner">
+                                <h2>
+                                    <strong>Cà Phê Nguyên Bản </strong>
+                                </h2>
+                                <p>Chúng tôi đến từ vùng đất Tây Nguyên, nơi đất đỏ Bazan màu mở, nơi có nguồn cà phê chất lượng hàng đầu Thế Giới.</p>
+                                <p>Để gia tăng giá trị cho sản phẩm cà phê Việt Nam, Chúng tôi tham gia chế biến cà phê Nguyên Bản với mục tiêu: Ngày càng nhiều cà phê sạch mang đến với người thưởng thức.</p>
+                                <p>Mỗi tách cà phê như món quà từ thiên nhiên chúng tôi hân hạnh mang đến khách hàng.</p>
+                                <h2>
+                                    <strong>Nguyên tắc và cách thức hoat động:</strong>
+                                </h2>
+                                <ol>
+                                    <li><strong>Tuyển chọn nguồn nguyên liệu Cà phê tốt nhất:</strong></li>
+                                </ol>
+                                <p>Chúng tôi đã, đang và sẽ luôn chú trọng đến chất lượng nguyên liệu cà phê, tìm kiếm nguồn cung cà phê ngon nhất theo cách: Chọn giống, chăm sóc, thu hoạch, bảo quản tại các vùng có chất lượng cà phê tốt nhất.</p>
+                                <ol start="2">
+                                    <li><strong>Thiết bị và qui trình sản xuất cà phê hiện đại:</strong></li>
+                                </ol>
+                                <p>Trang thiết bị sản xuất cà phê hiện đại, luôn bảo đảm an toàn vệ sinh thực phẩm. Mỗi mẻ rang cà phê của chúng luôn tôi được thực hiện một cách cực kỳ cẩn thận bởi những người thợ mà chúng tôi gọi là nghệ nhân và chất lượng cà phê nguyên bản của chúng tôi được cải thiện mỗi ngày.</p>
+                                <ol start="3">
+                                    <li><strong>Phân phối sản phẩm cà phê nguyên bản:</strong></li>
+                                </ol><p>
+                                    Đưa sản phẩm từ khi trồng đến khi chế biến ra thành phẩm không thông qua bất kỳ khâu trung gian nào. Cung cấp cho người thưởng thức sản phẩm cà phê nguyên bản được sản xuất bởi quy trình khép kín. <strong>Cà phê nguyên bản </strong>luôn tươi mới, ngon nhất với giá tốt nhất.
+                                </p>
+                                <ol start="4">
+                                    <li><strong>Cam kết của chúng tôi:</strong></li>
+                                </ol>
+                                <p>Chúng tôi tâm đắc sâu sắc đến tất cả các hoạt động này và công việc của chúng tôi sẽ không bao giờ kết thúc. Chúng tôi cùng nhà nông và nhà khoa học luôn cố gắng nghiên cứu và chế biến cho ra sản phẩm cà phê nguyên chất hoàn hảo nhất, vì đó không chỉ là công việc và sứ mệnh mà còn là niềm đam mê của chúng tôi. Đồng thời, chúng tôi cũng hướng đến sự đa dạng để tạo ra nơi được nhiều khách hàng tin tưởng nhất. Từ đó chúng ta có thể trao gởi niềm tin và thể hiện chính mình. Chúng tôi luôn luôn tuân thủ nguyên tắc: “Tôn trọng, cởi mở và đường hoàng”&nbsp;&nbsp;và chúng tôi luôn giữ cho nhau ở trong chuẩn mực đó. Hơn thế nữa, công việc của chúng tôi sẽ luôn phấn đấu để vượt xa điều đó. Vì đó thực sự là điều kết nối nhân văn.</p>
+                                <p>Người thưởng thức <strong>cà phê nguyên bản</strong> đến với chúng tôi và cảm nhận được cảm giác gần gũi và trãi nghiệm cà phê nguyên chất đích thực, các quán cà phê của chúng tôi luôn là nơi giao lưu chia sẻ, xa rời những lo toan bên ngoài, một nơi bạn có thể gặp gỡ bạn bè chia sẻ sự yêu thương và gắng kết tình bằng hữu</p>
+                                <ol start="5">
+                                    <li><strong>Tình hàng xóm của chúng tôi</strong></li>
+                                </ol>
+                                <p>Mỗi quán cà phê là một phần của cộng đồng và chúng tôi có trách nhiệm là những người láng giềng tốt một cách nghiêm túc. Chúng tôi muốn được chào đón ở mọi nơi chúng tôi đến. Chúng tôi có thể là một lực lượng cho hành động tích cực, kết nối các cộng đồng với nhau để góp phần làm cuộc sống tốt đẹp hơn mỗi ngày. Chúng tôi tin rằng trong chúng ta luôn mong đợi sự chân thành,cở mở và lương thiện, để từ đó mọi người cơ hội thể hiện tình yêu thương, gắn kết nhau cùng chia sẻ niềm hạnh phúc với nhau dù là nhỏ nhất..</p>
+                                <ol start="6">
+                                    <li><strong>Sứ mệnh về Môi trường</strong></li>
+                                </ol>
+                                <p>Chúng tôi sẵn sàng đóng vai trò là người đi đầu trong công tác giữ gìn môi trường xanh, sạch trong tất cả các khía cạnh kinh doanh của mình. Cùng cộng đồng nơi mình đến xây dựng một không gian ngày càng tươi đẹp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+
+}
+
+

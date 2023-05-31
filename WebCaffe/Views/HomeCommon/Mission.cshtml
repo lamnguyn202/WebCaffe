@@ -1,0 +1,127 @@
+﻿@model WebCaffe.Models.ContactUsModel
+@{
+    ViewBag.Title = "Mission";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    ol {
+        padding-left: 16px;
+    }
+</style>
+}
+@if (Model != null)
+{
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>Danh mục</span>
+                        </div>
+                        <ul>
+                            @if (Model.ListPosCategory != null && Model.ListPosCategory.Any())
+                            {
+                                foreach (var item in Model.ListPosCategory)
+                                {
+                                    <li><a href="/danh-muc/@item.SeoFriendUrl">@item.Name</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="javascript:loadSearchData();" style="background:#ffffff;">
+                                <input type="text" id="keyWord" placeholder="Tìm kiếm ...">
+                                <button type="button" class="site-btn" onclick="loadSearchData();"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>0373170564</h5>
+                                <span>Hỗ trợ 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="/assets/theme/img/background_title2.jpg">
+        <div class="container" style="background: #ffffff; padding: 40px 20px; border-radius: 30px;">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2 style="color:black;">SỨ MỆNH</h2>
+                        <div class="breadcrumb__option">
+                            <a style="color:black;" href="/">Trang chủ</a>
+                            <span style="color:black;"> Sứ mệnh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container" style="background: #ffffff; padding: 40px 20px; border-radius: 30px;">
+            <div class="row">
+
+                <div id="content" class="content-area page-wrapper" role="main" style="padding: 0 20px;">
+                    <div class="row row-main">
+                        <div class="large-12 col">
+                            <div class="col-inner">
+                                <h2 style="text-align: left;">
+                                    <span style="color: #333399;">“Một Công Ty, </span>
+                                    <span style="color: #333399;">Một Quy Chế, </span>
+                                    <span style="color: #333399;">Một Sứ Mệnh”</span>
+                                </h2>
+                                <p>
+                                    Chúng tôi, thành viên Ngovina với mục đích xây dựng công ty hoàn hảo hơn nữa,
+                                    thiết lập chuỗi cung ứng các sản phẩm hảo hạng, đảm bảo khách hàng luôn có được sản phẩm tuyệt hảo.
+                                    Tạo dựng lòng tin vững chắt từ khách hàng, thúc đẩy sự thịnh vượng chung cùng đồng sự và đối tác,
+                                    cam kết bất biến trong trong các nguyên tắc hành động. Nay quyết định xây dựng tôn chỉ hoạt động với sáu nguyên tắc:
+                                </p>
+                                <ol>
+                                    <li>Cùng xây dựng một môi trường làm việc tuyệt vời bằng tinh thần cần lao và nhân vị. Đối xử nhau bằng sự tự tôn và tôn trọng.</li>
+                                    <li>Sự khác biệt và đa dạng hóa là một phần tất yếu, phục vụ tối đa hóa khách hàng bằng sản phẩm có chất lượng hảo hạng.</li>
+                                    <li>Đặt các tiêu chuẩn cao nhất cho hoạt động sản xuất kinh doanh của mình và chất lượng sản phẩm được cải thiện mỗi ngày.</li>
+                                    <li>Tất cả các hành động đều hướng đến phục vụ thỏa mãn khách hàng, luôn làm hài lòng khách hàng phong thái chuyên nghiệp.</li>
+                                    <li>
+                                        Tích cực tham gia xây dựng cộng đồng ngày một thịnh vượng hơn bằng cách:
+                                        tuân thủ luật lệ địa phương, gắn kết cộng đồng chi sẻ nhân văn, bảo vệ môi trường.
+                                    </li>
+                                    <li>
+                                        Doanh thu và lợi nhuận là thước đo quan trọng giúp Ngovina phục vụ khách hàng ngày một tốt hơn,
+                                        qua đó cũng xây dựng cho mình một tương lai tươi sáng hơn.
+                                    </li>
+                                </ol>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+
+}
+
+
+
